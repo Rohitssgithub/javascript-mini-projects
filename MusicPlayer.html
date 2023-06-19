@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .music-player {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        #play-button,
+        #pause-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #play-button:hover,
+        #pause-button:hover {
+            background-color: #45a049;
+        }
+
+        #play-button:active,
+        #pause-button:active {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="music-player">
+        <audio id="audio-player" controls>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+        <div class="controls">
+            <button id="play-button">Play</button>
+            <button id="pause-button">Pause</button>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            var audioPlayer = document.getElementById("audio-player");
+            var playButton = document.getElementById("play-button");
+            var pauseButton = document.getElementById("pause-button");
+
+            playButton.addEventListener("click", function () {
+                audioPlayer.play();
+            });
+
+            pauseButton.addEventListener("click", function () {
+                audioPlayer.pause();
+            });
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            outline: none;
+            border: none;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            width: 350px;
+            display: flex;
+            background-color: #85ffbd;
+            background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+            padding: 30px 20px;
+            border-radius: 10px;
+            flex-direction: column;
+            margin: 20px 10px;
+        }
+
+        input {
+            font-size: large;
+            padding: 7px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: medium;
+            background-color: #1885f2;
+            border-radius: 10px;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #3d94eb;
+        }
+
+        button:active {
+            background-color: #2485e6;
+        }
+
+        #output {
+            width: 100%;
+            height: 60px;
+            border: 2px dotted grey;
+            border-radius: 10px;
+            margin: 5px 0;
+            font-weight: bold;
+            display: grid;
+            place-items: center;
+        }
+
+        footer {
+            margin-top: 50px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: grey;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <div class="container">
+        <label for="height">Hieght (cm)</label>
+        <input type="number" id="height" /><br />
+        <label for="weight">Wieght (kg)</label>
+        <input type="number" id="weight" /><br />
+        <p id="output">BMI Range :</p>
+        <button type="submit" onclick="calculateBMI()">Submit</button>
+    </div>
+
+
+    <script>
+        function calculateBMI() {
+            let height = parseFloat(document.getElementById('height').value);
+            let weight = parseFloat(document.getElementById('weight').value);
+            let showOutput = document.getElementById('output');
+            let classification;
+
+
+            if (isNaN(height)) {
+                alert('please enter valid height')
+            }
+            else if (isNaN(weight)) {
+                alert('please enter valid weight')
+
+            }
+
+            // BMI Calculation
+            else {
+
+                let bmiRange = weight / Math.pow((height), 2); // BMI Formula
+                bmiRange = bmiRange.toFixed(2);
+
+                if (bmiRange < 16) {
+                    classification = 'Severe Thinness';
+                } else if (bmiRange > 16 && bmiRange < 17) {
+                    classification = 'Moderate Thinness';
+                } else if (bmiRange > 17 && bmiRange < 18.5) {
+                    classification = 'Mild Thinness';
+                } else if (bmiRange > 18.5 && bmiRange < 25) {
+                    classification = 'Normal';
+                } else if (bmiRange > 25 && bmiRange < 30) {
+                    classification = 'Overweight';
+                } else if (bmiRange > 30 && bmiRange < 34) {
+                    classification = 'Obese Class I';
+                } else if (bmiRange > 35 && bmiRange < 40) {
+                    classification = 'Obese Class II';
+                } else if (bmiRange > 40) {
+                    classification = 'Obese Class III';
+                }
+                showOutput.innerHTML = `BMI Range: ${bmiRange} | ${classification} `;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

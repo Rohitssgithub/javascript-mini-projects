@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="title" id="end-date"></div>
+    <div class="col" style="display: flex;">
+        <div>
+            <input type="text" readonly value="0" id="days">
+            <br />
+            <label for="">Days</label>
+        </div>
+        <div>
+            <input type="text" readonly value="0" id="hours">
+            <br />
+            <label for="">Hours</label>
+        </div>
+        <div>
+            <input type="text" readonly value="0" id="minutes">
+            <br />
+            <label for="">Minutes</label>
+        </div>
+        <div>
+            <input type="text" readonly value="0" id="seconds">
+            <br />
+            <label for="">Seconds</label>
+        </div>
+        <p id="demo"></p>
+    </div>
+
+    <script>
+
+
+        const endDate = "may 12, 2023 11:14:05"
+        document.getElementById("end-date").innerText = endDate;
+
+
+        const inputs = document.querySelectorAll("input");
+
+        function clock() {
+
+            const end = new Date(endDate).getTime()
+            console.log(end)
+            const now = new Date().getTime()
+            console.log(now)
+
+            // const diff = (end - now);
+            const diff = (end - now) / 1000;
+
+            if (diff < 0) {
+                return document.getElementById('demo').innerHTML = 'EXPIRED'
+            }
+
+            document.getElementById("days").value = Math.floor(diff / 3600 / 24);
+            document.getElementById("hours").value = Math.floor(diff / 3600) % 24;
+            document.getElementById("minutes").value = Math.floor(diff / 60) % 60;
+            document.getElementById("seconds").value = Math.floor(diff) % 60;
+
+            // console.log(Math.floor(difsf / 3600 / 24))
+            // console.log(Math.floor(difsf / 3600) % 24)
+            // console.log(Math.floor(difsf / 60) % 60)
+            // console.log(Math.floor(difsf) % 60)
+
+
+            // console.log(Math.floor(diff / (1000 * 60 * 60 * 24)))
+            // console.log(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+            // console.log(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
+            // console.log(Math.floor((diff % (1000 * 60)) / 1000))
+
+
+
+            // document.getElementById("days").value = Math.floor(diff / (1000 * 60 * 60 * 24));
+            // document.getElementById("hours").value = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // document.getElementById("minutes").value = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            // document.getElementById("seconds").value = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+        clock()
+
+
+        setInterval(() => {
+            // clock()
+        }, 1000)
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

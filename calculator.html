@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+        .calculator {
+            padding: 10px;
+            border-radius: 1em;
+            height: 380px;
+            width: 400px;
+            /* margin: auto; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #191b28;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+        .display-box {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #dcdbe1;
+            border: solid black 0.5px;
+            color: black;
+            border-radius: 5px;
+            width: 100%;
+            height: 65%;
+        }
+
+        #btn {
+            background-color: #fb0066;
+        }
+
+        input[type=button] {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #64278f;
+            color: white;
+            border: solid black 0.5px;
+            width: 100%;
+            border-radius: 5px;
+            height: 70%;
+            outline: none;
+        }
+
+        input:hover {
+            background-color: rgb(134, 123, 206);
+        }
+
+        input:active[type=button] {
+            background-color: rgb(134, 123, 206);
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <input type="text" id="1">
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn">-</button>
+    <button class="btn">+</button>
+    <button class="btn">.</button>
+    <button class="btn">*</button>
+    <button class="btn">/</button>
+    <button class="btn">%</button>
+    <button id="3">Ac</button>
+    <button id="2">=</button>
+    <button id="5">cancel</button> -->
+
+
+    <table class="calculator">
+        <tr>
+            <td colspan="3"> <input class="display-box" type="text" id="result" /> </td>
+            <td> <input type="button" value="AC" id="clearBtn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="1" class="btn" /> </td>
+            <td> <input type="button" value="2" class="btn" /> </td>
+            <td> <input type="button" value="3" class="btn" /> </td>
+            <td> <input type="button" value="/" class="btn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="4" class="btn" /> </td>
+            <td> <input type="button" value="5" class="btn" /> </td>
+            <td> <input type="button" value="6" class="btn" /> </td>
+            <td> <input type="button" value="-" class="btn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="7" class="btn" /> </td>
+            <td> <input type="button" value="8" class="btn" /> </td>
+            <td> <input type="button" value="9" class="btn" /> </td>
+            <td> <input type="button" value="+" class="btn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="." class="btn" /> </td>
+            <td> <input type="button" value="0" class="btn" /> </td>
+            <td> <input type="button" value="=" id="ans" /> </td>
+            <td> <input type="button" value="*" class="btn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="del" id="bthns" /> </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <input type="text" placeholder="number 1" id="input1">
+        <input type="text" placeholder="number 2" id="input2">
+        <select name="" id="sele">
+            <option value="+">plus</option>
+            <option value="-">Minus</option>
+            <option value="*">Mulitply</option>
+            <option value="/">Divide</option>
+        </select>
+        <button onclick="getvalue()">Get Answer</button>
+    </div>
+
+    <script>
+
+
+
+        const getvalue = () => {
+            var value = document.getElementById("sele").value
+            console.log(value)
+            let firstNUm = parseInt(document.getElementById('input1').value)
+            let SecondNUm = parseInt(document.getElementById('input2').value)
+            let result = eval(firstNUm + value + SecondNUm)
+            console.log(result)
+        }
+
+
+
+
+
+
+        let b = document.querySelectorAll(".btn");
+        let a = document.getElementById('result')
+        for (let i of b) {
+            i.onclick = () => {
+                a.value += i.value
+            }
+        }
+
+        document.getElementById("ans").addEventListener('click', () => {
+            a.value = eval(a.value)
+        })
+
+        document.getElementById("clearBtn").addEventListener('click', () => {
+            a.value = "";
+        })
+
+        document.getElementById('bthns').addEventListener("click", () => {
+            a.value = a.value.toString().slice(0, -1)
+        })
+
+    </script>
+</body>
+
+</html>

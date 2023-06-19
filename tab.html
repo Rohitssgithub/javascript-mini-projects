@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <style>
+        body,
+        h1,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #667d8e;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        section {
+            width: 85%;
+            margin: 50px auto;
+        }
+
+        section h1 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2em;
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.57);
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        ul li {
+            list-style: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 5px 10px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .ok {
+            background-color: rgba(41, 255, 41, 0.897);
+        }
+
+        .product {
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border: solid;
+        }
+
+        .product img {
+            width: 200px;
+            height: 180px;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section>
+        <!-- <h1>Filter Image</h1>
+        <ul>
+            <li class="active">All Menu</li>
+            <li>Food</li>
+            <li>Car</li>
+            <li>House</li>
+            <li>Travel</li>
+        </ul>
+
+        <div class="product">
+            <img src="pictures/events-1.jpg" data-filter="food">
+            <img src="pictures/events-2.jpg" data-filter="food">
+            <img src="pictures/pexels-george-desipris-792381.jpg" data-filter="food">
+            <img src="pictures/pexels-pixabay-247502.jpg" data-filter="food">
+            <img src="pictures/pexels-pixabay-34231.jpg" data-filter="car">
+            <img src="pictures/pexels-pixabay-47547.jpg" data-filter="car">
+            <img src="pictures/sky.jpg" data-filter="car">
+            <img src="pictures/slide-3.jpg" data-filter="car">
+            <img src="pictures/events-2.jpg" data-filter="house">
+            <img src="pictures/events-1.jpg" data-filter="house">
+            <img src="pictures/pexels-george-desipris-792381.jpg" data-filter="house">
+            <img src="pictures/pexels-pixabay-34231.jpg" data-filter="house">
+            <img src="pictures/pexels-pixabay-47547.jpg" data-filter="travel">
+            <img src="pictures/sky.jpg" data-filter="travel">
+            <img src="pictures/slide-3.jpg" data-filter="travel">
+            <img src="pictures/pexels-george-desipris-792381.jpg" data-filter="travel">
+        </div> -->
+
+        <h1>Filter Image</h1>
+        <ul>
+            <li class="active ok" onclick="fet1(this)">All Menu</li>
+            <li class="active" onclick="fet1(this)">Food</li>
+            <li class="active" onclick="fet1(this)">Car</li>
+            <li class="active" onclick="fet1(this)">House</li>
+            <li class="active" onclick="fet1(this)">Travel</li>
+        </ul>
+
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA1sT25U89zfx1n10v0CmcYrT7KQjFwxwYSa1R8KCr&s"
+                data-filter="food" class="img1 food">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4HlACc6gYY7oe6aV7vtzjXf5JGTVU2clpIZbfd9A5CA&s"
+                data-filter="food" class="img1 food">
+            <img src="https://img.freepik.com/free-photo/plate-food-with-different-dishes-including-chicken-rice-other-food_1340-24267.jpg?size=626&ext=jpg"
+                data-filter="food" class="img1 food">
+            <img src="https://img.freepik.com/free-photo/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface_140725-14554.jpg?size=626&ext=jpg"
+                data-filter="food" class="img1 food">
+            <img src="https://img.freepik.com/free-photo/blue-black-muscle-car-with-license-plate-that-says-trans-front_1340-23399.jpg?size=626&ext=jpg&ga=GA1.2.129895140.1683788568&semt=sph"
+                data-filter="car" class="img1 car">
+            <img src="https://img.freepik.com/free-photo/red-luxury-sedan-road_114579-5079.jpg?size=626&ext=jpg&ga=GA1.2.129895140.1683788568&semt=sph"
+                data-filter="car" class="img1 car">
+            <img src="https://img.freepik.com/free-photo/black-nissan-suv-with-word-corsa-front_1340-31750.jpg?size=626&ext=jpg&ga=GA1.2.129895140.1683788568&semt=sph"
+                data-filter="car" class="img1 car">
+            <img src="https://img.freepik.com/free-photo/blue-jeep-parking-public-zone_114579-4042.jpg?size=626&ext=jpg&ga=GA1.2.129895140.1683788568&semt=sph"
+                data-filter="car" class="img1 car">
+            <img src="https://img.freepik.com/free-photo/modern-residential-district-with-green-roof-balcony-generated-by-ai_188544-10276.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="house" class="img1 house">
+            <img src="https://img.freepik.com/free-photo/blue-house-with-blue-roof-sky-background_1340-25953.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="house" class="img1 house ">
+            <img src="https://img.freepik.com/free-photo/house-with-garage-house-left-side_1340-32088.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="house" class="img1 house ">
+            <img src="https://img.freepik.com/free-photo/hand-presenting-model-house-home-loan-campaign_53876-104970.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="house" class="img1 house">
+            <img src="https://img.freepik.com/free-photo/backpacker-standing-sunrise-viewpoint-ja-bo-village-mae-hong-son-province-thailand_335224-1356.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="travel" class="img1 travel">
+            <img src="https://img.freepik.com/free-photo/young-woman-hiker-taking-photo-with-smartphone-mountains-peak-winter_335224-427.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="travel" class="img1 travel">
+            <img src="https://img.freepik.com/premium-photo/creative-background-red-suitcase-sneakers-plane-blue-background_99433-28.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="travel" class="img1 travel">
+            <img src="https://img.freepik.com/free-photo/tourist-sitting-phu-sub-lek-viewpoint-sunset-lopburi-thailand_335224-1390.jpg?size=626&ext=jpg&ga=GA1.1.129895140.1683788568&semt=sph"
+                data-filter="travel" class="img1 travel">
+        </div>
+    </section>
+
+    <script>
+
+        // fet1("all menu")
+        // function fet1(c) {
+        //     let tav = document.querySelectorAll(".img1")
+        //     if (c == "all menu") {
+        //         c = ""
+        //     }
+        //     for (i = 0; i < tav.length; i++) {
+        //         recl(tav[i], 'show')
+        //         if (tav[i].className.indexOf(c) > -1) {
+        //             addclass(tav[i], 'show')
+        //         }
+        //     }
+        // }
+
+        // function addclass(ele, nam) {
+        //     let arr1 = ele.className.split(" ")
+        //     console.log(arr1)
+        //     let arr2 = nam.split(" ")
+        //     console.log(arr2)
+        //     for (i = 0; i < arr2.length; i++) {
+        //         if (arr1.indexOf(arr2[i]) == -1) {
+        //             ele.className += " " + arr2[i]
+        //         }
+        //     }
+        // }
+
+
+        // function recl(ele, nam) {
+        //     let arr1 = ele.className.split(" ")
+        //     console.log(arr1)
+        //     let arr2 = nam.split(" ")
+        //     console.log(arr2)
+        //     for (i = 0; i < arr2.length; i++) {
+        //         while (arr1.indexOf(arr2[i]) > -1) {
+        //             arr1.splice(arr1.indexOf(arr2[i]), 1)
+        //         }
+        //     }
+        //     ele.className = arr1.join(" ")
+
+        // }
+
+
+        let b = document.querySelectorAll(".active");
+        let images = document.querySelectorAll(".img1")
+
+        const fet1 = (ele) => {
+            b.forEach((e) => {
+                e.className = "active";
+            })
+            ele.className = "ok";
+            let value = ele.textContent
+            images.forEach((image) => {
+                image.style.display = 'none';
+                if (image.getAttribute('data-filter') == value.toLowerCase() || value == "All Menu") {
+                    image.style.display = 'block';
+                }
+            })
+        }
+
+
+    </script>
+
+</body>
+
+</html>

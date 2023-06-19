@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 380px;
+            background-color: #a9c9ff;
+            background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px;
+            position: relative;
+        }
+
+        .get-container {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(128, 128, 128, 0.486);
+        }
+
+        label {
+            display: block;
+            padding: 8px 0;
+            font-weight: 500;
+        }
+
+        input[type='text'] {
+            border-radius: 5px;
+            border: none;
+            padding: 10px;
+            outline: none;
+        }
+
+        .addInputs,
+        .getInputs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .displayContactStyle {
+            font-weight: 600;
+            background-color: #21bfe649;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .displayContactStyle::before {
+            content: '  📞';
+        }
+
+        #displayNoti {
+            font-weight: 600;
+        }
+
+        #addContact {
+            width: 100%;
+            margin: 15px 0;
+            padding: 8px;
+            font-weight: 500;
+        }
+
+        #getContact {
+            width: 48%;
+            margin: 15px 0;
+            padding: 8px;
+            font-weight: 500;
+        }
+
+        .reset {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: #a9c9ff;
+            cursor: pointer;
+            opacity: 0.2;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        img {
+            transform: rotate(20deg);
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Contact Book
+            <img src="https://i.ibb.co/x50wtLw/pngwing-com.png" alt="" width="34px" />
+        </h1>
+    </header>
+    <main class="container">
+        <!-- ADD CONTACTS -->
+        <div class="add-container">
+            <label for="name">Add New Contact</label>
+            <div class="addInputs">
+                <input type="text" id="name" placeholder="Enter Contact Name" required />
+                <input type="text" id="number" placeholder="Enter Contact Number" maxlength="10" required />
+            </div>
+            <button type="submit" id="addContact" onclick="addContact()">
+                Submit
+            </button>
+            <p id="displayNoti"></p>
+        </div>
+
+        <!-- GET CONTACTS -->
+        <div class="get-container">
+            <label for="getContact">Get Contact Details</label>
+            <div class="getInputs">
+                <input type="text" id="getContactName" placeholder="Contact Name" required />
+                <button type="submit" id="getContact" onclick="getContact()">
+                    Get Detail
+                </button>
+            </div>
+            <p id="displayContact"></p>
+            <div class="reset" onclick="reset()">Reset</div>
+        </div>
+    </main>
+
+    <script>
+        // SET CONTACT
+        function addContact() {
+            let cName = document.querySelector('#name').value.toUpperCase();
+            let cNumber = document.querySelector('#number').value;
+            let displayNotification = document.querySelector('#displayNoti');
+
+            if (cName == '' || cNumber == '') {
+                displayNotification.innerHTML = 'Please enter details !';
+                displayNotification.style.color = 'red';
+            }
+            else {
+                // Set Items
+                localStorage.setItem(cName, cNumber);
+                displayNotification.innerHTML = '✓ Successfully Added New Contact ';
+                displayNotification.style.color = 'green';
+            }
+            setInterval(() => {
+                displayNotification.innerHTML = '';
+            }, 2000);
+        }
+
+        // GET CONTACT
+        function getContact() {
+            let displayDetail = document.querySelector('#displayContact');
+            displayDetail.classList.add('displayContactStyle');
+            let getContactName = document.querySelector('#getContactName').value.toUpperCase();
+            // GetItem
+            let output = localStorage.getItem(getContactName);
+            displayDetail.innerHTML = `${getContactName} : ${output == null ? ' This contact detail is not added' : `+91 ${output}`}`;
+            getContactName = '';
+        }
+
+        function reset() {
+            location.reload();
+            // localStorage.clear()
+        }
+
+    </script>
+</body>
+
+</html>

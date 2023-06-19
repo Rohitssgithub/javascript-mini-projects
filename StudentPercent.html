@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Student Marks Percentage | 06/100 Projects 🔥 | By CodeBustler
+    </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            color: black;
+            background-color: white;
+            display: grid;
+            place-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            background-color: #a9c9ff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        thead * {
+            background-color: blueviolet;
+            border: 1px solid black;
+            padding: 10px;
+            color: white;
+        }
+
+        tbody tr td:nth-of-type(3) {
+            font-weight: bold;
+        }
+
+        tfoot * {
+            border: 1px solid black;
+            padding: 10px;
+            font-weight: 800;
+            color: white;
+            background-color: blueviolet;
+        }
+
+        tbody * {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px;
+            font-size: larger;
+        }
+
+        #percentage {
+            font-size: larger;
+            font-weight: bold;
+            background-color: blueviolet;
+            color: white;
+            padding: 8px 40px;
+            border-radius: 10px;
+            width: 60%;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: grey;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Student Marks Percentage</h1>
+    </header>
+
+    <main class="container">
+        <table>
+            <thead>
+                <th>Sr No#</th>
+                <th>Subject Name</th>
+                <th>Scored Marks</th>
+                <th>Total Marks</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>English</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Hindi</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Maths</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Science</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Social S</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Drawing</td>
+                    <td class="scoreMarks" contenteditable="true">00</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>Total Marks</td>
+                    <td id="totalScoredMarks">00</td>
+                    <td id="totalMarks">600</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="btn-container">
+            <button onclick="calculate()">Calculate</button>
+            <div id="percentage">Percentage :</div>
+        </div>
+    </main>
+
+    <script>
+        function calculate() {
+            let sub1 = parseInt(document.getElementsByClassName('scoreMarks')[0].innerHTML);
+            let sub2 = parseInt(document.getElementsByClassName('scoreMarks')[1].innerHTML);
+            let sub3 = parseInt(document.getElementsByClassName('scoreMarks')[2].innerHTML);
+            let sub4 = parseInt(document.getElementsByClassName('scoreMarks')[3].innerHTML);
+            let sub5 = parseInt(document.getElementsByClassName('scoreMarks')[4].innerHTML);
+            let sub6 = parseInt(document.getElementsByClassName('scoreMarks')[5].innerHTML);
+
+            totalMarks = sub1 + sub2 + sub3 + sub4 + sub5 + sub6;
+            console.log(totalMarks);
+
+            let percentage = Math.floor((totalMarks / 600) * 100);
+            document.getElementById('percentage').innerHTML = `Percentage : ${percentage}% `;
+
+            document.getElementById('totalScoredMarks').innerHTML = totalMarks;
+        }
+
+    </script>
+</body>
+
+</html>

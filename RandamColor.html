@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        .maindiv {
+            border: 1px solid grey;
+            border-radius: 20px;
+            width: 20%;
+            display: grid;
+            place-items: center;
+            padding: 10px 15px;
+            background-color: white;
+        }
+
+        button {
+            margin: 20px 0;
+            font-size: large;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="maindiv">
+        <p id="demo"></p>
+        <button onclick="randomColor()">Chnage Color</button>
+    </div>
+
+
+    <script>
+        const randomColor = () => {
+            let randomnumber = Math.floor(Math.random() * 16777215)
+            let randomcode = "#" + randomnumber.toString(16)
+            document.body.style.backgroundColor = randomcode
+            document.getElementById("demo").innerHTML = 'color : ' + randomcode
+        }
+        // setInterval(() => {
+        randomColor()
+        // }, 1000)
+    </script>
+
+</body>
+
+</html>
